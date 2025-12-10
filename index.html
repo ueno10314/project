@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>映画レコメンデーションシステム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 お好きな映画を3つ選択してください</h1>
+        
+        <div id="loading" class="loading">
+            <p>データを読み込んでいます...</p>
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            <p>⚠️ バックエンドサーバーに接続できません</p>
+            <p class="error-detail">Pythonサーバーが起動しているか確認してください</p>
+            <button onclick="location.reload()" class="retry-button">再読み込み</button>
+        </div>
+        
+        <div id="selection-form" style="display: none;">
+            <div class="form-group">
+                <label for="movie1">1つ目の映画:</label>
+                <select id="movie1">
+                    <option value="">— 映画を選択してください —</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="movie2">2つ目の映画:</label>
+                <select id="movie2">
+                    <option value="">— 映画を選択してください —</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="movie3">3つ目の映画:</label>
+                <select id="movie3">
+                    <option value="">— 映画を選択してください —</option>
+                </select>
+            </div>
+            
+            <button onclick="getRecommendations()" id="submitBtn">オススメ映画を表示</button>
+            
+            <div class="info">
+                ※ 映画を選択しない場合は、総合的に評価値が高い映画を表示します
+            </div>
+        </div>
+        
+        <div id="recommendations"></div>
+    </div>
+    
+    <script src="script-python.js"></script>
+</body>
+</html>
